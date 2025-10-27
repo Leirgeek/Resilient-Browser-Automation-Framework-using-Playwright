@@ -9,17 +9,17 @@ Prerequisites:
 - npm
 
 Install dependencies:
-```sh
+-sh
 npm install
-```
+
 
 Run the test suite:
-```sh
+-sh
 npm test
-```
+
 
 Open the HTML report generated in `reports/`:
-```sh
+sh
 # open in default browser on Windows
 start "" "reports\index.html"
 
@@ -30,17 +30,24 @@ start "" "reports\index.html"
 - Playwright config: `playwright.config.js`
 - HTML report: `reports/index.html`
 
-Test files 
-- `src/tests/loginResilience.test.js` — resilient login flow using retry helper
+Playwright Test files 
+- src/tests/loginResilience.test.js` — resilient login flow using retry helper
 - `src/tests/crashRecovery.test.js` — simulates browser crash & recovery
 - `src/tests/performanceInstrumentation.test.js` — captures performance metrics
 
 Utilities 
-- `src/utils/retryHelper.js` — withRetry helper to retry async actions
-- `src/utils/config.js` — central config values (baseUrl, retries, delays)
-- `src/utils/traceCollector.js` — collectPerformanceMetrics via CDP (Chromium)
-- `src/utils/browserManager.js` — safe launch/close helpers
-- `src/utils/logger.js` — centralized logging
+Retry helper:
+Symbol: retryHelper.withRetry
+File: src/utils/retryHelper.js
+Provides withRetry which retries an async action up to N times with a delay.
+Configuration:
+Symbol: config.config
+File: src/utils/config.js
+Central config values: baseUrl, retries, delayBetweenRetries.
+Trace / performance collector:
+Symbol: traceCollector.collectPerformanceMetrics
+File: src/utils/traceCollector.js
+Uses a CDP session to enable and fetch Performance.getMetrics.
 
 ## Reports & results
 
