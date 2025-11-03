@@ -1,4 +1,6 @@
-import winston from 'winston';
+import winston from 'winston';//winston Node Js library for logging 
+//It supports multiple transports, meaning logs can go to the console, 
+// file, HTTP, or even external services (e.g., Logstash, Datadog).
 
 export const logger = winston.createLogger({
   level: 'info',
